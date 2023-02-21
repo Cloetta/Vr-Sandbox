@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
+
+//Continue from this tutorial https://www.youtube.com/watch?v=kfA_73npjMA
+
 public class MovementRecognizer : MonoBehaviour
 {
     public XRNode inputSource;
