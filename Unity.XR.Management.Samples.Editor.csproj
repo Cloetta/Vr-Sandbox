@@ -56,10 +56,10 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Samples\XR Plugin Management\4.2.1\Example XR Management implementation\Editor\SampleStandaloneLoaderUI.cs" />
     <Compile Include="Assets\Samples\XR Plugin Management\4.2.1\Example XR Management implementation\Editor\SampleMetadata.cs" />
-    <Compile Include="Assets\Samples\XR Plugin Management\4.2.1\Example XR Management implementation\Editor\SampleSettingsEditor.cs" />
+    <Compile Include="Assets\Samples\XR Plugin Management\4.2.1\Example XR Management implementation\Editor\SampleStandaloneLoaderUI.cs" />
     <Compile Include="Assets\Samples\XR Plugin Management\4.2.1\Example XR Management implementation\Editor\SampleBuildProcessor.cs" />
+    <Compile Include="Assets\Samples\XR Plugin Management\4.2.1\Example XR Management implementation\Editor\SampleSettingsEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Samples\XR Plugin Management\4.2.1\Example XR Management implementation\Editor\Unity.XR.Management.Samples.Editor.asmdef" />
