@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MovementRecognizer.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Geometry.cs" />
+    <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\PointCloudRecognizer.cs" />
     <Compile Include="Assets\PDollar\Scripts\Demo.cs" />
     <Compile Include="Assets\XRPlatformControllerSetup.cs" />
@@ -65,7 +66,8 @@
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\GestureIO.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Point.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Gesture.cs" />
-    <Compile Include="Assets\Scripts\Spawner.cs" />
+    <Compile Include="Assets\Scripts\AnimateHandOnInput.cs" />
+    <Compile Include="Assets\Scripts\HandPresence.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-exclamation_point-01.xml" />
