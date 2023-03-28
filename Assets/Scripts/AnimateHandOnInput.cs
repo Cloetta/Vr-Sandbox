@@ -23,9 +23,9 @@ public class AnimateHandOnInput : MonoBehaviour
 
     void Update()
     {
-        //float triggerValue = pinchAnimationAction.action.ReadValue<float>();
+        float triggerValue = pinchAnimationAction.action.ReadValue<float>();
         //this is working, but gets only 0 or 1
-        InputHelpers.TryReadSingleValue(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out float triggerValue);  
+        //InputHelpers.TryReadSingleValue(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out float triggerValue);  
 
         handAnimator.SetFloat("Trigger", triggerValue);
         Debug.Log(triggerValue); 

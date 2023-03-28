@@ -9,10 +9,7 @@ using System.IO;
 using UnityEngine.Events;
 using System.Diagnostics.CodeAnalysis;
 
-
-//Continue from this tutorial https://www.youtube.com/watch?v=kfA_73npjMA
-
-public class MovementRecognizer : MonoBehaviour
+public class OculusMovementRecognizer : MonoBehaviour
 {
     public XRNode inputSource;
     public InputHelpers.Button inputButton;
