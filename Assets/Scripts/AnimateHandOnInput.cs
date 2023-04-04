@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR;
+
 
 public class AnimateHandOnInput : MonoBehaviour
 {
 
     public InputActionProperty pinchAnimationAction;
+    public InputActionProperty gripAnimationAction;
 
-
-    public XRNode inputSource;
-    public InputHelpers.Button inputButton;
 
     public Animator handAnimator;
 
@@ -27,7 +24,11 @@ public class AnimateHandOnInput : MonoBehaviour
         //this is working, but gets only 0 or 1
         //InputHelpers.TryReadSingleValue(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out float triggerValue);  
 
+        float gripValue =gripAnimationAction.action.ReadValue<float>();
+
         handAnimator.SetFloat("Trigger", triggerValue);
-        Debug.Log(triggerValue); 
+        Debug.Log(triggerValue);
+        handAnimator.SetFloat("Grip", gripValue);
+        Debug.Log(gripValue);
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine.XR;
 
 public class HMDInfoManager : MonoBehaviour
 {
+
+    //don't need this anymore - delete
+
     void Start()
     {
         //Debug.Log("Is Device Active " + XRSettings.isDeviceActive);

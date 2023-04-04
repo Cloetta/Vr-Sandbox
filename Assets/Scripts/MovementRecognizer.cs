@@ -53,12 +53,12 @@ public class MovementRecognizer : MonoBehaviour
 
         //uncomment when not on uni pcs
 
-        /*string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, "*.xml");
+        string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, "*.xml");
 
         foreach (var item in gestureFiles)
         {
             trainingSet.Add(GestureIO.ReadGestureFromFile(item));
-        }*/
+        }
 
         trailInstance = null;
     }
@@ -133,8 +133,8 @@ public class MovementRecognizer : MonoBehaviour
             //storing element in a file to be able to retrieve it on each play session
             
             //uncomment when not on uni pcs
-            /*string fileName = Application.persistentDataPath + "/" + newGesture.Name + ".xml";
-            GestureIO.WriteGesture(pointArray, newGestureName, fileName);*/
+            string fileName = Application.persistentDataPath + "/" + newGesture.Name + ".xml";
+            GestureIO.WriteGesture(pointArray, newGestureName, fileName);
         }
         //recognise the gesture
         else
