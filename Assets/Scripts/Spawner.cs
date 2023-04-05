@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
             //Doesn't activate 
 
 
-            if (item.name == objectName)
+            /*if (item.name == objectName)
             {
                 item.SetActive(true);
                 Debug.Log(item.name + " spawned");
@@ -25,11 +25,10 @@ public class Spawner : MonoBehaviour
             else
             {
                 Debug.Log("No match found.");
-            }
-
-
-
+            }*/
             
         }
+
+        
     }
 }
