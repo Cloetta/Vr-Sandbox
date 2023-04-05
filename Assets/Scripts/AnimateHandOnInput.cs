@@ -24,7 +24,7 @@ public class AnimateHandOnInput : MonoBehaviour
         //this is working, but gets only 0 or 1
         //InputHelpers.TryReadSingleValue(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out float triggerValue);  
 
-        float gripValue =gripAnimationAction.action.ReadValue<float>();
+        float gripValue = gripAnimationAction.action.ReadValue<float>();
 
         handAnimator.SetFloat("Trigger", triggerValue);
         Debug.Log(triggerValue);
