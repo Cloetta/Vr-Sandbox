@@ -1,35 +1,42 @@
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class StartingStats : MonoBehaviour
 {
     //Range of the available levels available
-    [Range(1, 10)]
+    [Range(1, 20)]
     public int startLevel = 1;
     [SerializeField]
     Class characterClass;
+    
+    public ElementAffinity elementAffinity;
+    public ElementAffinity elementWeakness; 
     [SerializeField]
     Levelling levelling = null;
-    State state;
+    ExperienceManager expManager;
 
+
+    State state;
     //-----NOTES-----
     //Improvements on the stat bar: change from incremental to reset exp point system
     //---------------
 
-    int currentLevel = 0;
+    public int currentLevel = 0;
     
 
     private void Awake()
     {
-        Debug.Log("Current level NOT: " + currentLevel);
+        //Debug.Log("Current level NOT: " + currentLevel);
         currentLevel = CalculateLevel();
-        Debug.Log("Current level Calculated: " + currentLevel);
+        //Debug.Log("Current level Calculated: " + currentLevel);
        
     }
 
     private void Start()
     {
-        ExperienceManager expManager = GetComponent<ExperienceManager>();
+        expManager = GetComponent<ExperienceManager>();
 
         state = GetComponent<State>();
 
@@ -47,8 +54,13 @@ public class StartingStats : MonoBehaviour
         int newLevel = CalculateLevel();
         if(newLevel > currentLevel)
         {
+
+            //check if this line works with level up
+            expManager.expThisLevel = expManager.expThisLevel - GetStat(Stat.ExpToLevelUp);
+
             currentLevel = newLevel;
-            Debug.Log("Lev up");  
+            //Debug.Log("Lev up");  
+
         }
 
         float healthDiff = state.maxHealth - state.currentHealth;
@@ -56,8 +68,7 @@ public class StartingStats : MonoBehaviour
         state.maxHealth = GetStat(Stat.HealthPoints);
 
         state.currentHealth = state.maxHealth - healthDiff;
-
-
+        
     }
 
 
@@ -76,7 +87,7 @@ public class StartingStats : MonoBehaviour
         if (exp == null)
         {
             //Returning the starting level if no componen
-            Debug.Log("ExpManager is null!");
+            //Debug.Log("ExpManager is null!");
             return startLevel;
         }
         float currentExp = exp.GetPoints();
@@ -87,12 +98,12 @@ public class StartingStats : MonoBehaviour
         }
   
         //float currentExp = GetComponent<ExperienceManager>().GetPoints();
-        int penultimateLevel = levelling.GetLevels(Stat.ExpToNextLevel, characterClass);
+        int penultimateLevel = levelling.GetLevels(Stat.CumulativeExp, characterClass);
 
 
         for (int level= 1; level <= penultimateLevel; level++)
         {
-            float ExpToLevelUP = levelling.GetStat(Stat.ExpToNextLevel, characterClass, level);
+            float ExpToLevelUP = levelling.GetStat(Stat.CumulativeExp, characterClass, level);
              if (ExpToLevelUP > currentExp)
              {
                 return level;
@@ -132,5 +143,50 @@ public class StartingStats : MonoBehaviour
         }
         return totalDamage;
     }
+
+    public void GetElementalAffinity(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                Debug.Log("Not applicable");
+                break;
+            case 1:
+                elementAffinity = ElementAffinity.Fire;
+                elementWeakness = ElementAffinity.Water;
+                break;
+            case 2:
+                elementAffinity = ElementAffinity.Water;
+                elementWeakness = ElementAffinity.Electricity;
+
+                break;
+            case 3:
+                elementAffinity = ElementAffinity.Ice;
+                elementWeakness = ElementAffinity.Fire;
+                break;
+            case 4:
+                elementAffinity = ElementAffinity.Earth;
+                elementWeakness = ElementAffinity.Air;
+                break;
+            case 5:
+                elementAffinity = ElementAffinity.Air;
+                elementWeakness = ElementAffinity.Ice;
+                break;
+            case 6:
+                elementAffinity = ElementAffinity.Electricity;
+                elementWeakness = ElementAffinity.Earth;
+                break;
+            case 7:
+                elementAffinity = ElementAffinity.Light;
+                elementWeakness = ElementAffinity.Darkness;
+                break;
+            case 8:
+                elementAffinity = ElementAffinity.Darkness;
+                elementWeakness = ElementAffinity.Light;
+                break;
+        }
+    }
+
+
 
 }

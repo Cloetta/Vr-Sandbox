@@ -1,7 +1,9 @@
 public enum Stat
 {
     HealthPoints,
+    BaseDamage,
+    ExpToLevelUp,
+    CumulativeExp,
     Reward,
-    ExpToNextLevel,
-    BaseDamage
+    MagicPoints
 }

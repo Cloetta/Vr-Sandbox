@@ -113,6 +113,7 @@ public class Levelling : ScriptableObject
    {
         
         public Class characterClass;
+        //public ElementAffinity elementAffinity;
         
         public LevellingStat[] stats;
         

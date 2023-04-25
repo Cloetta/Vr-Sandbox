@@ -7,8 +7,10 @@ public class ExperienceManager : MonoBehaviour
 {
 
 
-    [SerializeField]
-    float expPoints = 0f;
+    //make private later
+    public float totalExpPoints = 0f;
+
+    public float expThisLevel = 0f;
 
     //Event to update the level when exp points are enough for next level
     public event Action onExpReceived;
@@ -16,13 +18,17 @@ public class ExperienceManager : MonoBehaviour
 
     public void GainedExp(float exp)
     {
-        expPoints += exp;
+        totalExpPoints += exp;
         //Trigger action when getting experience
+        expThisLevel += exp;
+
         onExpReceived();
     }
 
     public float GetPoints()
     {
-        return expPoints;
+        return totalExpPoints;
     }
+
+
 }

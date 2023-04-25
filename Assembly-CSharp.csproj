@@ -58,8 +58,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\XRSetup\MovementRecognizer.cs" />
     <Compile Include="Assets\Samples\Universal RP\13.1.8\URP Package Samples\CameraStacking\3D Skybox\Scripts\SkyboxCamera.cs" />
-    <Compile Include="Assets\Scripts\Stats\Levelling.cs" />
-    <Compile Include="Assets\Scripts\Stats\State.cs" />
     <Compile Include="Assets\Samples\Universal RP\13.1.8\URP Package Samples\SharedAssets\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Geometry.cs" />
     <Compile Include="Assets\Samples\Universal RP\13.1.8\URP Package Samples\SharedAssets\Scripts\AutoLoadPipelineAsset.cs" />
@@ -70,24 +68,28 @@
     <Compile Include="Assets\XRPlatformControllerSetup.cs" />
     <Compile Include="Assets\Scripts\XRSetup\XRGrabInteractableTwoAttach.cs" />
     <Compile Include="Assets\Samples\Universal RP\13.1.8\URP Package Samples\RendererFeatures\KeepFrame\KeepFrameFeature.cs" />
+    <Compile Include="Assets\Scripts\XRSetup\ActivateGrabRay.cs" />
     <Compile Include="Assets\Scripts\XRSetup\DetectVR.cs" />
-    <Compile Include="Assets\Scripts\Stats\ExperienceManager.cs" />
     <Compile Include="Assets\Scripts\Stats\Class.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\GestureIO.cs" />
-    <Compile Include="Assets\Scripts\Stats\Statistics.cs" />
+    <Compile Include="Assets\Scripts\GameMenuManager.cs" />
     <Compile Include="Assets\Scripts\XRSetup\SetTurnType.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\PointCloudRecognizer.cs" />
     <Compile Include="Assets\Scripts\XRSetup\HandsAnimationOnInput.cs" />
     <Compile Include="Assets\Scripts\XRSetup\ActivateTeleportationRay.cs" />
-    <Compile Include="Assets\Scripts\Stats\StartingStats.cs" />
     <Compile Include="Assets\Scripts\XRSetup\HMDInfoManager.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Result.cs" />
     <Compile Include="Assets\Scripts\XRSetup\HandPresence.cs" />
     <Compile Include="Assets\Scripts\XRSetup\AnimateHandOnInput.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Point.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Gesture.cs" />
-    <Compile Include="Assets\Scripts\XRSetup\ActivateGrabRay.cs" />
-    <Compile Include="Assets\Scripts\GameMenuManager.cs" />
+    <Compile Include="Assets\Scripts\Stats\Levelling.cs" />
+    <Compile Include="Assets\Scripts\Stats\ExperienceManager.cs" />
+    <Compile Include="Assets\Scripts\Stats\PlayerHealthBarUpdater.cs" />
+    <Compile Include="Assets\Scripts\Stats\State.cs" />
+    <Compile Include="Assets\Scripts\Stats\StartingStats.cs" />
+    <Compile Include="Assets\Scripts\Stats\Statistics.cs" />
+    <Compile Include="Assets\Scripts\Stats\Elements.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-exclamation_point-01.xml" />

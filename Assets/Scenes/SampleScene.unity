@@ -331,6 +331,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 0
   isDead: 0
+  startStats: {fileID: 0}
 --- !u!114 &81898355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +347,8 @@ MonoBehaviour:
   startLevel: 1
   characterClass: 0
   levelling: {fileID: 11400000, guid: 1743ea1a3ff27714ca786282e6c2baf4, type: 2}
+  state: {fileID: 0}
+  currentLevel: 0
 --- !u!1 &140611227
 GameObject:
   m_ObjectHideFlags: 0
