@@ -41,6 +41,7 @@ public class WizardReplaceSplatmap : ScriptableWizard
         ScriptableWizard.DisplayWizard<WizardReplaceSplatmap>("Replace Splatmap", "Replace");
     }
 
+    [System.Obsolete]
     void OnWizardCreate()
     {
         if (newsplat.format != TextureFormat.RGBA32 && newsplat.format != TextureFormat.ARGB32 && newsplat.format != TextureFormat.RGB24)

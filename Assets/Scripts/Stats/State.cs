@@ -34,19 +34,19 @@ public class State : MonoBehaviour
     private void Update()
     {
         //Condition to trigger mana regeneration, 1% of max mana per second
-        if (maxMana > currentMana)
+        if (GetComponent<StartingStats>().GetStat(Stat.MagicPoints) > GetComponent<State>().currentMana)
         {
             if (Time.time >= manaRegenTime)
             {
 
-                currentMana+= maxMana * 0.01f;
+                GetComponent<State>().currentMana += GetComponent<StartingStats>().GetStat(Stat.MagicPoints) * 0.01f;
                 manaRegenTime = Time.time + 1f;
             }
         }
 
-        if (currentMana > maxMana)
+        if (GetComponent<StartingStats>().GetStat(Stat.MagicPoints) < GetComponent<State>().currentMana)
         {
-            currentMana = maxMana;
+            GetComponent<State>().currentMana = GetComponent<StartingStats>().GetStat(Stat.MagicPoints);
         }
     }
 

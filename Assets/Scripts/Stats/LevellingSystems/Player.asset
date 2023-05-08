@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ba79e0d78aa524c94c76173940e249, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  progressClass:
+  - characterClass: 0
+    stats:
+    - stat: 0
+      levels:
+      - 80
+      - 122
+      - 164
+      - 206
+      - 248
+      - 290
+      - 332
+      - 374
+      - 416
+      - 458
+      - 500
+      - 542
+      - 584
+      - 626
+      - 668
+      - 710
+      - 752
+      - 794
+      - 836
+      - 878
+    - stat: 1
+      levels:
+      - 3
+      - 7
+      - 10
+      - 14
+      - 17
+      - 21
+      - 25
+      - 28
+      - 32
+      - 35
+      - 39
+      - 43
+      - 46
+      - 50
+      - 53
+      - 57
+      - 61
+      - 64
+      - 68
+      - 71
+    - stat: 2
+      levels:
+      - 20
+      - 44
+      - 73
+      - 107
+      - 149
+      - 199
+      - 258
+      - 330
+      - 416
+      - 519
+      - 643
+      - 792
+      - 970
+      - 1184
+      - 1441
+      - 1749
+      - 2119
+      - 2562
+      - 3095
+      - 3734
+    - stat: 3
+      levels:
+      - 20
+      - 64
+      - 137
+      - 244
+      - 393
+      - 592
+      - 850
+      - 1180
+      - 1596
+      - 2115
+      - 2758
+      - 3550
+      - 4520
+      - 5704
+      - 7144
+      - 8893
+      - 11012
+      - 13574
+      - 16669
+      - 20403
+    - stat: 4
+      levels:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - stat: 5
+      levels:
+      - 40
+      - 61
+      - 82
+      - 103
+      - 124
+      - 145
+      - 166
+      - 187
+      - 208
+      - 229
+      - 250
+      - 271
+      - 292
+      - 313
+      - 334
+      - 355
+      - 376
+      - 397
+      - 418
+      - 439

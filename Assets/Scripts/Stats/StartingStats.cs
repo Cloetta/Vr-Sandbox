@@ -17,21 +17,38 @@ public class StartingStats : MonoBehaviour
     Levelling levelling = null;
     ExperienceManager expManager;
 
+    private PlayerSkills playerSkills;
+
 
     State state;
-    //-----NOTES-----
-    //Improvements on the stat bar: change from incremental to reset exp point system
-    //---------------
 
     public int currentLevel = 0;
     
 
     private void Awake()
-    {
-        //Debug.Log("Current level NOT: " + currentLevel);
+    {       
         currentLevel = CalculateLevel();
-        //Debug.Log("Current level Calculated: " + currentLevel);
-       
+
+        playerSkills = new PlayerSkills();
+        playerSkills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
+    }
+
+    private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
+    {
+
+        //is this useful for some passive maybe...? https://www.youtube.com/watch?v=_OQTTKkwZQY&ab_channel=CodeMonkey 10.34
+        switch (e.skillType)
+        {
+            case PlayerSkills.SkillType.Skill1:
+                break;
+            case PlayerSkills.SkillType.Skill2:
+                break;
+            case PlayerSkills.SkillType.Skill3:
+                break;
+            case PlayerSkills.SkillType.Skill4:
+                break;
+
+        }
     }
 
     private void Start()
@@ -55,11 +72,10 @@ public class StartingStats : MonoBehaviour
         if(newLevel > currentLevel)
         {
 
-            //check if this line works with level up
-            expManager.expThisLevel = expManager.expThisLevel - GetStat(Stat.ExpToLevelUp);
-
+            //Make sure the exp bar is considering only the current exp on the level and not being cumulative across all levels
+            expManager.expThisLevel = Math.Max(expManager.expThisLevel - GetStat(Stat.ExpToLevelUp), 0);
+            playerSkills.AddSkillPoint();
             currentLevel = newLevel;
-            //Debug.Log("Lev up");  
 
         }
 
@@ -149,44 +165,68 @@ public class StartingStats : MonoBehaviour
         switch (index)
         {
             case 0:
-                Debug.Log("Not applicable");
-                break;
-            case 1:
                 elementAffinity = ElementAffinity.Fire;
                 elementWeakness = ElementAffinity.Water;
                 break;
-            case 2:
+            case 1:
                 elementAffinity = ElementAffinity.Water;
                 elementWeakness = ElementAffinity.Electricity;
-
                 break;
-            case 3:
+            case 2:
                 elementAffinity = ElementAffinity.Ice;
                 elementWeakness = ElementAffinity.Fire;
                 break;
-            case 4:
+            case 3:
                 elementAffinity = ElementAffinity.Earth;
                 elementWeakness = ElementAffinity.Air;
                 break;
-            case 5:
+            case 4:
                 elementAffinity = ElementAffinity.Air;
                 elementWeakness = ElementAffinity.Ice;
                 break;
-            case 6:
+            case 5:
                 elementAffinity = ElementAffinity.Electricity;
                 elementWeakness = ElementAffinity.Earth;
                 break;
-            case 7:
+            case 6:
                 elementAffinity = ElementAffinity.Light;
                 elementWeakness = ElementAffinity.Darkness;
                 break;
-            case 8:
+            case 7:
                 elementAffinity = ElementAffinity.Darkness;
                 elementWeakness = ElementAffinity.Light;
                 break;
         }
     }
 
+    //change with skillname
+    public bool CanUseSkill1()
+    {
+        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill1); //change with skillname 
+    }
 
+
+    //change with skillname
+    public bool CanUseSkill2()
+    {
+        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill2); //change with skillname 
+    }
+
+    //change with skillname
+    public bool CanUseSkill3()
+    {
+        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill3); //change with skillname 
+    }
+
+    //change with skillname
+    public bool CanUseSkill4()
+    {
+        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill4); //change with skillname 
+    }
+
+    public PlayerSkills GetPlayerSkills()
+    {
+        return playerSkills;
+    }
 
 }

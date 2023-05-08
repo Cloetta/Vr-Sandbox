@@ -92,7 +92,7 @@ public class KeepFrameFeature : ScriptableRendererFeature
 
     private CopyFramePass m_CopyFrame;
     private DrawOldFramePass m_DrawOldFame;
-
+    
     private RenderTargetHandle m_OldFrameHandle;
 
     public Settings settings = new Settings();
@@ -106,6 +106,7 @@ public class KeepFrameFeature : ScriptableRendererFeature
         m_DrawOldFame = new DrawOldFramePass();
         m_DrawOldFame.renderPassEvent = RenderPassEvent.BeforeRenderingOpaques; //Old frame is drawn early in the frame
     }
+
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {

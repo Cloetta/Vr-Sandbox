@@ -18,7 +18,7 @@ public class PlayerHealthBarUpdater: MonoBehaviour
     public Slider sliderExp;
     public Slider SliderMP;
 
-    public Text cumulativeExp;
+
 
 
     
@@ -32,19 +32,14 @@ public class PlayerHealthBarUpdater: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //update text and slidebar value
-        healthText.text = state.currentHealth.ToString() + "/" + stats.GetStat(Stat.HealthPoints);//state.maxHealth.ToString();
+        //Update text and slidebars values
+        healthText.text = state.currentHealth.ToString() + "/" + stats.GetStat(Stat.HealthPoints);
         ExpText.text = expManager.expThisLevel.ToString() + "/" + stats.GetStat(Stat.ExpToLevelUp);
         LevelText.text = "Lv. " + stats.CalculateLevel();
-        sliderHP.value = state.currentHealth / state.maxHealth * 100;
-        //sliderHP.maxValue = stats.GetStat(Stat.HealthPoints);
-        //sliderExp.maxValue = stats.GetStat(Stat.ExpToLevelUp);
+        sliderHP.value = state.currentHealth / stats.GetStat(Stat.HealthPoints) * 100;
         sliderExp.value = expManager.expThisLevel / stats.GetStat(Stat.ExpToLevelUp) * 100;
-
-        SliderMP.value = state.currentMana / state.maxMana * 100;
+        SliderMP.value = state.currentMana / stats.GetStat(Stat.MagicPoints) * 100;
         manaText.text = (float)Mathf.Round(state.currentMana) + "/" + stats.GetStat(Stat.MagicPoints);
-
-        cumulativeExp.text = expManager.totalExpPoints + " / " + stats.GetStat(Stat.CumulativeExp);
 
     }
 
