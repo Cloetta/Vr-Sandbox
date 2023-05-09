@@ -94,6 +94,16 @@
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Point.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Gesture.cs" />
     <Compile Include="Assets\Scripts\PlayerSkills.cs" />
+    <Compile Include="Assets\Scripts\Behaviour Tree\Node.cs" />
+    <Compile Include="Assets\Scripts\Behaviour Tree\Tree.cs" />
+    <Compile Include="Assets\Scripts\Behaviour Tree\Sequence.cs" />
+    <Compile Include="Assets\Scripts\Behaviour Tree\Selector.cs" />
+    <Compile Include="Assets\Scripts\AI\TaskPatrol.cs" />
+    <Compile Include="Assets\Scripts\AI\EnemyBT.cs" />
+    <Compile Include="Assets\Scripts\AI\CheckEntitiesInRange.cs" />
+    <Compile Include="Assets\Scripts\AI\TaskGoToTarget.cs" />
+    <Compile Include="Assets\Scripts\AI\CheckEntitiesInAttackRange.cs" />
+    <Compile Include="Assets\Scripts\AI\TaskAttack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\Fonts\Condiment\OFL.txt" />

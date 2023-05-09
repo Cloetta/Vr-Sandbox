@@ -14,6 +14,8 @@ public class State : MonoBehaviour
     StartingStats startStats;
     private float manaRegenTime;
 
+    [SerializeField] Transform attackPoint;
+
     //StartingStats startStats;
 
 
@@ -110,4 +112,20 @@ public class State : MonoBehaviour
     {
         return GetComponent<StartingStats>().GetStat(Stat.HealthPoints);
     }
+
+
+    void OnDrawGizmosSelected()
+    {
+
+        if (this.CompareTag("Enemy"))
+        {
+            Gizmos.DrawWireSphere(transform.position, EnemyBT.fieldOfViewRange);
+
+            Gizmos.DrawWireSphere(attackPoint.position, EnemyBT.attackRange);
+        }
+        
+
+        
+    }
+
 }
