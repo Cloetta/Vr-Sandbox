@@ -72,16 +72,19 @@
     <Compile Include="Assets\Scripts\Stats\ExperienceManager.cs" />
     <Compile Include="Assets\Samples\Universal RP\13.1.8\URP Package Samples\RendererFeatures\KeepFrame\KeepFrameFeature.cs" />
     <Compile Include="Assets\Scripts\XRSetup\ActivateGrabRay.cs" />
+    <Compile Include="Assets\Scripts\SkillTree.cs" />
     <Compile Include="Assets\Scripts\XRSetup\DetectVR.cs" />
     <Compile Include="Assets\Scripts\Stats\Class.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\GestureIO.cs" />
     <Compile Include="Assets\Scripts\Stats\Statistics.cs" />
+    <Compile Include="Assets\Scripts\Testing.cs" />
     <Compile Include="Assets\Scripts\GameMenuManager.cs" />
     <Compile Include="Assets\Scripts\Stats\Levelling.cs" />
     <Compile Include="Assets\Scripts\XRSetup\SetTurnType.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\PointCloudRecognizer.cs" />
     <Compile Include="Assets\Scripts\XRSetup\HandsAnimationOnInput.cs" />
     <Compile Include="Assets\Scripts\XRSetup\ActivateTeleportationRay.cs" />
+    <Compile Include="Assets\Scripts\PlayerAction.cs" />
     <Compile Include="Assets\Scripts\XRSetup\HMDInfoManager.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Result.cs" />
     <Compile Include="Assets\Scripts\Stats\StartingStats.cs" />
@@ -90,10 +93,7 @@
     <Compile Include="Assets\Scripts\Stats\State.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Point.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Gesture.cs" />
-    <Compile Include="Assets\Scripts\SkillTree.cs" />
     <Compile Include="Assets\Scripts\PlayerSkills.cs" />
-    <Compile Include="Assets\Scripts\Testing.cs" />
-    <Compile Include="Assets\Scripts\PlayerAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\Fonts\Condiment\OFL.txt" />

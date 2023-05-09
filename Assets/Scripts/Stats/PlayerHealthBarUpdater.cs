@@ -14,9 +14,15 @@ public class PlayerHealthBarUpdater: MonoBehaviour
     public Text ExpText;
     public Text LevelText;
 
-    public Slider sliderHP;
+    public Material indicatorHP;
     public Slider sliderExp;
-    public Slider SliderMP;
+    public Material indicatorMP;
+
+    //public Slider sliderHp;
+    //public Slider sliderMp;
+
+    public float sliderMP;
+    public float sliderHP;
 
 
 
@@ -28,19 +34,30 @@ public class PlayerHealthBarUpdater: MonoBehaviour
         expManager = GameObject.FindWithTag("Player").GetComponent<ExperienceManager>();
         stats = GameObject.FindWithTag("Player").GetComponent<StartingStats>();
 
+        sliderMP = 0;
+        sliderHP = 0;
+
     }
     // Update is called once per frame
     void Update()
     {
+        sliderMP = (0.5f - (state.currentMana / stats.GetStat(Stat.MagicPoints) / 2));
+        sliderHP = (0.5f - (state.currentHealth / stats.GetStat(Stat.HealthPoints) / 2));
+
         //Update text and slidebars values
-        healthText.text = state.currentHealth.ToString() + "/" + stats.GetStat(Stat.HealthPoints);
+        //healthText.text = state.currentHealth.ToString() + "/" + stats.GetStat(Stat.HealthPoints);
         ExpText.text = expManager.expThisLevel.ToString() + "/" + stats.GetStat(Stat.ExpToLevelUp);
         LevelText.text = "Lv. " + stats.CalculateLevel();
-        sliderHP.value = state.currentHealth / stats.GetStat(Stat.HealthPoints) * 100;
+        //sliderHp.value = state.currentHealth / stats.GetStat(Stat.HealthPoints) * 100;
         sliderExp.value = expManager.expThisLevel / stats.GetStat(Stat.ExpToLevelUp) * 100;
-        SliderMP.value = state.currentMana / stats.GetStat(Stat.MagicPoints) * 100;
-        manaText.text = (float)Mathf.Round(state.currentMana) + "/" + stats.GetStat(Stat.MagicPoints);
+        //sliderMp.value = state.currentMana / stats.GetStat(Stat.MagicPoints) * 100;
+        indicatorMP.SetFloat("_Cutoff", sliderMP);
+        indicatorHP.SetFloat("_Cutoff", sliderHP);
+
+        //manaText.text = (float)Mathf.Round(state.currentMana) + "/" + stats.GetStat(Stat.MagicPoints);
 
     }
+
+    
 
 }

@@ -8,6 +8,7 @@ public class PlayerAction : MonoBehaviour
 {
     [SerializeField] StartingStats player;
 
+
     public InputActionProperty testButton;
 
     // Update is called once per frame
@@ -15,7 +16,7 @@ public class PlayerAction : MonoBehaviour
     {
         if (testButton.action.WasPressedThisFrame())
         {
-            if (player.CanUseSkill1())
+            /*if (player.CanUseSkill1())
             {
                 Debug.Log("Using skill 1!");
 
@@ -23,7 +24,13 @@ public class PlayerAction : MonoBehaviour
             else
             {
                 Debug.Log("Nope!");
-            }
+            }*/
+
+
+            player.GetComponent<State>().currentHealth -= 1;
+            player.GetComponent<State>().currentMana -= 1;
+
+
         }
 
         
