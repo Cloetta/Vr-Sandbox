@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class InventorySlot : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
+public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public RawImage icon;
     
@@ -27,6 +27,8 @@ public class InventorySlot : MonoBehaviour//, IPointerEnterHandler, IPointerExit
     //public string header;
     //[Multiline()] //makes the text multiline
     //public string content;
+
+    [SerializeField] GameObject prefabIcon;
 
     public int currentQuantity;
     
@@ -49,15 +51,31 @@ public class InventorySlot : MonoBehaviour//, IPointerEnterHandler, IPointerExit
         //    }
         //}
         //testing stackable objects end
+        if(icon == null)
+        {
+            RectTransform slotTransform = GetComponent<RectTransform>();
+            Vector3 spawnLocation = new Vector3(slotTransform.localPosition.x, slotTransform.localPosition.y, slotTransform.localPosition.z);
 
-        icon.texture = item.icon;
-        icon.enabled = true;
-        quantityTxt.enabled = true;
-        //quantityTxt.text = item.quantityInInventory.ToString();
 
-        //currentQuantity += item.quantity;
+            GameObject itemObject = Instantiate(prefabIcon, spawnLocation, Quaternion.identity);
 
-        quantityTxt.text = currentQuantity.ToString();
+            itemObject.transform.SetParent(slotTransform, false);
+
+            itemObject.transform.localScale = Vector3.one;
+
+            icon = itemObject.GetComponent<RawImage>();
+            quantityTxt = itemObject.GetComponentInChildren<TextMeshProUGUI>();
+
+            icon.texture = item.icon;
+            icon.enabled = true;
+            quantityTxt.enabled = true;
+            //quantityTxt.text = item.quantityInInventory.ToString();
+
+            //currentQuantity += item.quantity;
+
+            quantityTxt.text = currentQuantity.ToString();
+        }
+       
 
 
     }
@@ -65,10 +83,20 @@ public class InventorySlot : MonoBehaviour//, IPointerEnterHandler, IPointerExit
     public void ClearSlot()
     {
         item = null;
-        icon.texture = null;
-        icon.enabled = false;
-        quantityTxt.enabled = false;
+
+        if(icon != null)
+        {
+            icon.texture = null;
+            icon.enabled = false;
+        }
+
+        if (quantityTxt != null)
+        {
+            quantityTxt.enabled = false;
+        }
         
+       
+              
     }
 
     public void OnDeleteButton()
@@ -112,7 +140,7 @@ public class InventorySlot : MonoBehaviour//, IPointerEnterHandler, IPointerExit
     //Discard items and place them back into the world
     public void DiscardItem()
     {
-
+        
 
         if (item != null)
         {
@@ -141,6 +169,28 @@ public class InventorySlot : MonoBehaviour//, IPointerEnterHandler, IPointerExit
 
         
 
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (transform.childCount == 0)
+        {
+            GameObject dropped = eventData.pointerDrag;
+            DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+            draggableItem.parentAfterDrag = transform;
+
+            /* (draggableItem.parentAfterDrag.CompareTag("Drop"))
+            {
+                DiscardItem();
+                Destroy(dropped);
+
+
+            }*/
+        }
+
+
+        
+        
     }
 
     /*public void Description()

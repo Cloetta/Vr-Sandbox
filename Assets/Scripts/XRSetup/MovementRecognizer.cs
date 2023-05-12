@@ -51,7 +51,7 @@ public class MovementRecognizer : MonoBehaviour
     void Start()
     {
 
-        //uncomment when not on uni pcs
+        
 
         string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, "*.xml");
 

@@ -126,6 +126,7 @@
     <Compile Include="Assets\Scripts\XRSetup\HMDInfoManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scripts\Inventory\DraggableItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\PDollar\Scripts\PDollarGestureRecognizer\Result.cs" />
@@ -149,6 +150,9 @@
     <Compile Include="Assets\Scripts\PlayerSkills.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\Behaviour Tree\Sequence.cs" />
+    <Compile Include="Assets\Scripts\AI\AllyBT.cs" />
+    <Compile Include="Assets\Scripts\AI\TaskFollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\Summon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\Fonts\Condiment\OFL.txt" />

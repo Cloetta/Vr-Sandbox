@@ -12,20 +12,17 @@ public class Spawner : MonoBehaviour
         foreach (var item in objects)
         {
             //replace this with instantiate and the "monster" object
-            item.SetActive(objectName == item.name);
+            //item.SetActive(objectName == item.name);
 
-            //Doesn't activate 
+            Debug.Log("it is looping");
 
-
-            /*if (item.name == objectName)
+            if(objectName == item.name)
             {
-                item.SetActive(true);
-                Debug.Log(item.name + " spawned");
+
+                Instantiate(item, transform.position, Quaternion.identity);
             }
-            else
-            {
-                Debug.Log("No match found.");
-            }*/
+
+            
             
         }
 
