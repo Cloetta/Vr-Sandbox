@@ -24,13 +24,14 @@ public class CheckEntitiesInRange : Node
             if (colliders.Length > 0)
             {
                 parent.parent.SetData("target", colliders[0].transform);
-                animator.SetBool("Walking", true);
+                animator.SetBool("isWalking", true);
 
                 state = NodeState.SUCCESS;
                 return state;
             }
             else
             {
+                
                 state = NodeState.FAILURE;
                 return state;
             }

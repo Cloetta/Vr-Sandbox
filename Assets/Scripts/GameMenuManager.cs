@@ -9,7 +9,9 @@ public class GameMenuManager : MonoBehaviour
     public Transform head;
     public float spawnDistance = 2;
 
-    public GameObject menu;
+    [SerializeField] GameObject menu;
+    [SerializeField] GameObject movementRecognizer;
+
     public InputActionProperty showButton;
 
     // Update is called once per frame
@@ -19,7 +21,18 @@ public class GameMenuManager : MonoBehaviour
         {
             menu.SetActive(!menu.activeSelf);
 
-            menu.transform.position = head.position + new Vector3(head.forward.x, 0, head.forward.z).normalized * spawnDistance;
+            if (menu.activeInHierarchy)
+            {
+                Time.timeScale = 0;
+                movementRecognizer.SetActive(false);
+            }
+            else
+            {
+                Time.timeScale = 1; 
+                movementRecognizer.SetActive(true);
+            }
+
+            menu.transform.position = head.position + new Vector3(head.forward.x, 0.5f, head.forward.z).normalized * spawnDistance;
         }
 
         menu.transform.LookAt(new Vector3(head.position.x, menu.transform.position.y, head.position.z));

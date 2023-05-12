@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45503cfa409b1d342979a1c7348114c5, type: 3}
+  m_Name: Dagger
+  m_EditorClassIdentifier: 
+  name: Dagger
+  icon: {fileID: 2800000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
+  type: Dagger
+  hpHeal: 0
+  addMaxHealth: 0
+  isDefaultItem: 0
+  description: Short ranged weapon. Adds +3 to your damage.
+  maxQuantity: 1
+  quantity: 0
+  stackQuantity: 0
+  quantityInInventory: 0
+  itemPrefab: {fileID: 0}
+  slot: {fileID: 0}
+  weaponEquipped: {fileID: 719999345427394833, guid: ce7f3383ee7bd1a4fa6de10beb1a84be,
+    type: 3}
+  equipSlot: 0
+  weaponRange: 0.6
+  weaponDamage: 3
+  weaponDefense: 0

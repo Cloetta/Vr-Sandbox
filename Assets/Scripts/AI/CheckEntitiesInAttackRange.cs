@@ -29,11 +29,16 @@ public class CheckEntitiesInAttackRange : Node
         Transform target = (Transform)t;
         if (Vector3.Distance(transform.position, target.position) <= EnemyBT.attackRange)
         {
-            
+            animator.SetBool("isAttacking", true);
+            animator.SetBool("isWalking", false);
 
             state = NodeState.SUCCESS;
             return state;
         }
+        
+        animator.SetBool("isAttacking", false);
+        animator.SetBool("isWalking", true);
+        
 
         state = NodeState.FAILURE;
         return state;

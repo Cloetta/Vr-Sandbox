@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f798495f3b458834a8ff6fecddeb98b3, type: 3}
+  m_Name: TestItem
+  m_EditorClassIdentifier: 
+  name: Test
+  icon: {fileID: 2800000, guid: 3f7035d4263aa1a4b968754d4753d5b5, type: 3}
+  type: 
+  hpHeal: -10
+  addMaxHealth: 0
+  isDefaultItem: 0
+  description: 
+  maxQuantity: 5
+  quantity: 1
+  stackQuantity: 0
+  quantityInInventory: 0
+  itemPrefab: {fileID: 494638955036485804, guid: 832638060e82e874bb8476a526d3ef8f,
+    type: 3}
+  slot: {fileID: 0}

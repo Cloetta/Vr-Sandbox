@@ -37,8 +37,7 @@ public class TaskAttack : Node
             float damage = 10f;
 
 
-            animator.SetBool("isAttacking", true);
-            animator.SetBool("isWalking", false);
+            
             //enemyManager = target.GetComponent<State>();
             enemyManager.TakingDamage(attacker, damage);
 
