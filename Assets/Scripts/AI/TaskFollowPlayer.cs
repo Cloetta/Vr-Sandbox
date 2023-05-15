@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BehaviourTree;
+using UnityEngine.AI;
 
 public class TaskFollowPlayer : Node
 {
@@ -9,6 +10,8 @@ public class TaskFollowPlayer : Node
     public Transform player;
 
     private Animator animator;
+    private NavMeshAgent agent;
+    
 
     private int currentWaypointIndex = 0;
     //private float speed = 2f;
@@ -23,6 +26,7 @@ public class TaskFollowPlayer : Node
         transform = pTransform;
         player = pPlayer;
         animator = transform.GetComponent<Animator>();
+        agent = transform.GetComponent<NavMeshAgent>();
     }
 
 
@@ -33,7 +37,7 @@ public class TaskFollowPlayer : Node
 
         if (Vector3.Distance(transform.position, player.position) < 2f)
         {
-            transform.position = transform.position;
+            agent.destination = transform.position;
             stopping = true;
             animator.SetBool("isWalking", false);
         }
@@ -41,7 +45,7 @@ public class TaskFollowPlayer : Node
         {
             stopping = false;
             animator.SetBool("isWalking", true);
-            transform.position = Vector3.MoveTowards(transform.position, player.position, AllyBT.speed * Time.deltaTime);
+            agent.destination = Vector3.MoveTowards(transform.position, player.position, AllyBT.speed * Time.deltaTime);
             transform.LookAt(player.position);
         }
         

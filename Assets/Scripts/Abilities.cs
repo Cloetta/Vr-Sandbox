@@ -1,18 +1,33 @@
+using Palmmedia.ReportGenerator.Core.Reporting.Builders.Rendering;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class Abilities : MonoBehaviour
+
+[CreateAssetMenu(fileName = "New Ability", menuName = "Ability")]
+public class Abilities : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    new public string name = "New Ability";
+
+    public Texture icon = null;
+
+   
+    public enum Type
     {
-        
+        Passive,
+        Active
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float modifier;
+    public Stat stat;
+    public Type type;
+    [SerializeField]
+    public PlayerSkills.SkillType ability;
+
+    public string description; 
+    public GameObject effectPrefab;
+
+    public float cost;
+    public float cooldown;
 }

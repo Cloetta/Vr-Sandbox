@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerSkills
 {
     public event EventHandler OnSkillPointsChanged;
     public event EventHandler<OnSkillUnlockedEventArgs> OnSkillUnlocked;
+
+   
     public class OnSkillUnlockedEventArgs: EventArgs
     {
         public SkillType skillType;
@@ -15,14 +18,28 @@ public class PlayerSkills
     public enum SkillType
     {
         None,
-        Skill1,
-        Skill2,
-        Skill3,
-        Skill4,
+        Heal,
+        Passive_Summon1,
+        Passive_Mana1,
+        Barrier_Summon,
+        Empower_Summon,
+        Passive_HP1,
+        Passive_HP2,
+        Passive_Damage1,
+        Barrier_Self,
+        Empower_Self,
+        Fireball,
+        Passive_Mana2,
+        Passive_Damage2,
+        Passive_Mana3,
+        Break_Barriers, 
+        Blood_Stain
     }
 
     private List<SkillType> unlockedSkillList;
-    private int skillPoints;
+    public int skillPoints = 10;
+
+
 
     //Constructor for the list of skills acquired
     public PlayerSkills()
@@ -84,9 +101,23 @@ public class PlayerSkills
     {
         switch (skillType)
         {
-            case SkillType.Skill2: return SkillType.Skill1;
-            case SkillType.Skill3: return SkillType.Skill2;
-            case SkillType.Skill4: return SkillType.Skill3;
+            //Support Branch
+            case SkillType.Passive_Summon1: return SkillType.Heal;
+            case SkillType.Passive_Mana1: return SkillType.Passive_Summon1;
+            case SkillType.Barrier_Summon: return SkillType.Passive_Mana1;
+            case SkillType.Empower_Summon: return SkillType.Passive_Mana1;
+            //Offense Branch
+            case SkillType.Passive_HP1: return SkillType.Blood_Stain;
+            case SkillType.Passive_Damage1: return SkillType.Passive_HP1;
+            case SkillType.Passive_HP2: return SkillType.Passive_HP1;
+            case SkillType.Barrier_Self: return SkillType.Passive_HP2;
+            case SkillType.Empower_Self: return SkillType.Passive_Damage1;
+            //Magic/Debuff Branch
+            case SkillType.Passive_Mana2: return SkillType.Fireball;
+            case SkillType.Passive_Damage2: return SkillType.Passive_Mana2;
+            case SkillType.Passive_Mana3: return SkillType.Passive_Mana2;
+            case SkillType.Break_Barriers: return SkillType.Passive_Damage1 | SkillType.Passive_Mana3;
+
         }
 
         return SkillType.None;
@@ -99,9 +130,11 @@ public class PlayerSkills
         {
             if (skillPoints > 0)
             {
+                Debug.Log(skillPoints);
                 skillPoints--;
                 OnSkillPointsChanged?.Invoke(this, EventArgs.Empty);
                 UnlockSkill(skillType);
+                Debug.Log("unlock ok");
                 return true;
             }
             else
@@ -112,11 +145,12 @@ public class PlayerSkills
         }
         else
         {
+            Debug.Log("Unlock Failed");
             return false;
         }
 
         
     }
 
-    
+   
 }

@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BehaviourTree;
+using UnityEngine.AI;
 
 public class TaskPatrol : Node
 {
     public Transform transform;
     private Transform[] waypoints;
+    private NavMeshAgent agent;
+    
 
     private Animator animator;
 
@@ -23,6 +26,7 @@ public class TaskPatrol : Node
         transform = pTransform;
         waypoints = pWaypoints;
         animator = transform.GetComponent<Animator>();
+        agent = transform.GetComponent<NavMeshAgent>();
     }
 
 
@@ -41,7 +45,7 @@ public class TaskPatrol : Node
         {
             Transform wp = waypoints[currentWaypointIndex];
 
-            if (Vector3.Distance(transform.position, wp.position) < 0.01f)
+            if (Vector3.Distance(transform.position, wp.position) < 0.05f)
             {
                 transform.position = wp.position;
                 waitCounter = 0f;
@@ -52,7 +56,7 @@ public class TaskPatrol : Node
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, wp.position, EnemyBT.speed * Time.deltaTime);
+                agent.destination = Vector3.MoveTowards(transform.position, wp.position, EnemyBT.speed * Time.deltaTime);
                 transform.LookAt(wp.position);
             }
         }

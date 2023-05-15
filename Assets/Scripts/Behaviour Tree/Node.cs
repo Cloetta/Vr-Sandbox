@@ -20,7 +20,7 @@ namespace BehaviourTree
         public Node parent;
         protected List<Node> children = new List<Node>();
 
-        private Dictionary<string, object> _dataContext = new Dictionary<string, object> ();   
+        private Dictionary<string, object> dataContext = new Dictionary<string, object> ();   
 
         public Node()
         {
@@ -31,11 +31,11 @@ namespace BehaviourTree
         {
             foreach (Node child in children)
             {
-                _Attach(child);
+                Attach(child);
             }
         }
 
-        private void _Attach(Node node)
+        private void Attach(Node node)
         {
             node.parent = this;
             children.Add(node);
@@ -45,13 +45,13 @@ namespace BehaviourTree
 
         public void SetData(string key, object value)
         {
-            _dataContext[key] = value;
+            dataContext[key] = value;
         }
 
         public object GetData(string key)
         {
             object value = null;
-            if(_dataContext.TryGetValue(key, out value))
+            if(dataContext.TryGetValue(key, out value))
             {
                 return value;
             }
@@ -74,9 +74,9 @@ namespace BehaviourTree
 
         public bool ClearData(string key)
         {
-            if (_dataContext.ContainsKey(key))
+            if (dataContext.ContainsKey(key))
             {
-                _dataContext.Remove(key);
+                dataContext.Remove(key);
                 return true;
             }
 

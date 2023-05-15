@@ -80,7 +80,12 @@ public class State : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        //Destroy(this.gameObject);
+
+        if (!this.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 
     public float GetSlideBarValue()

@@ -10,7 +10,7 @@ using UnityEngine.Events;
 using System.Diagnostics.CodeAnalysis;
 
 
-//Continue from this tutorial https://www.youtube.com/watch?v=kfA_73npjMA
+
 
 public class MovementRecognizer : MonoBehaviour
 {
@@ -129,7 +129,7 @@ public class MovementRecognizer : MonoBehaviour
             newGesture.Name = newGestureName;
             trainingSet.Add(newGesture);
 
-            //https://www.youtube.com/watch?v=kfA_73npjMA 10.29
+           
             //storing element in a file to be able to retrieve it on each play session
             
             //uncomment when not on uni pcs

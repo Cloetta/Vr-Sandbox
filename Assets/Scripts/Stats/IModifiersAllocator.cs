@@ -7,5 +7,8 @@ using UnityEngine;
 public interface IModifiersAllocator
 {
     //Compared to enumerator, enumerable allows to loop over it
-    IEnumerable<float> GetModifier(Stat stat);
+    IEnumerable<float> GetAdditiveModifier(Stat stat);
+    IEnumerable<float> GetPercentageModifier(Stat stat);
+
+
 }

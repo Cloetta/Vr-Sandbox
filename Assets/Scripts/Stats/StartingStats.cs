@@ -2,6 +2,7 @@ using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using System;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using static PlayerSkills;
 
 public class StartingStats : MonoBehaviour
 {
@@ -34,19 +35,43 @@ public class StartingStats : MonoBehaviour
     }
 
     private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
-    {
-
-        //is this useful for some passive maybe...? https://www.youtube.com/watch?v=_OQTTKkwZQY&ab_channel=CodeMonkey 10.34
+    {        
+        
         switch (e.skillType)
         {
-            case PlayerSkills.SkillType.Skill1:
+            case PlayerSkills.SkillType.Heal:
                 break;
-            case PlayerSkills.SkillType.Skill2:
+            case PlayerSkills.SkillType.Passive_Summon1:
                 break;
-            case PlayerSkills.SkillType.Skill3:
+            case PlayerSkills.SkillType.Passive_Mana1:
                 break;
-            case PlayerSkills.SkillType.Skill4:
+            case PlayerSkills.SkillType.Barrier_Summon:
                 break;
+            case PlayerSkills.SkillType.Empower_Summon:
+                break;
+            case PlayerSkills.SkillType.Passive_HP1:
+                break;
+            case PlayerSkills.SkillType.Passive_HP2:
+                break;
+            case PlayerSkills.SkillType.Passive_Damage1:
+                break;
+            case PlayerSkills.SkillType.Barrier_Self:
+                break;
+            case PlayerSkills.SkillType.Empower_Self:
+                break;
+            case PlayerSkills.SkillType.Fireball:
+                break;
+            case PlayerSkills.SkillType.Passive_Mana2:
+                break;
+            case PlayerSkills.SkillType.Passive_Damage2:
+                break;
+            case PlayerSkills.SkillType.Passive_Mana3:
+                break;
+            case PlayerSkills.SkillType.Break_Barriers:
+                break;
+            case PlayerSkills.SkillType.Blood_Stain:
+                break;
+
 
         }
     }
@@ -151,7 +176,7 @@ public class StartingStats : MonoBehaviour
 
         foreach(IModifiersAllocator allocator in GetComponents<IModifiersAllocator>())
         {
-            foreach(float modifier in allocator.GetModifier(stat))
+            foreach(float modifier in allocator.GetAdditiveModifier(stat))
             {
                 totalDamage += modifier;
                 
@@ -200,29 +225,14 @@ public class StartingStats : MonoBehaviour
     }
 
     //change with skillname
-    public bool CanUseSkill1()
+
+    public bool CanUseSkill(PlayerSkills.SkillType skill)
     {
-        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill1); //change with skillname 
+
+        return playerSkills.IsSkillUnlocked(skill); //change with skillname 
     }
 
 
-    //change with skillname
-    public bool CanUseSkill2()
-    {
-        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill2); //change with skillname 
-    }
-
-    //change with skillname
-    public bool CanUseSkill3()
-    {
-        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill3); //change with skillname 
-    }
-
-    //change with skillname
-    public bool CanUseSkill4()
-    {
-        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill4); //change with skillname 
-    }
 
     public PlayerSkills GetPlayerSkills()
     {
